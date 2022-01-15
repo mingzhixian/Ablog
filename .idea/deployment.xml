@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="cloud">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/Ablog" local="$PROJECT_DIR$/out/artifacts/Ablog-exploded" web="http://150.158.81.132/Ablog" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
