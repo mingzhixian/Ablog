@@ -17,8 +17,8 @@
       <root url="jar://$PROJECT_DIR$/lib/spring-messaging-5.2.3.RELEASE.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-core-5.2.3.RELEASE.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-beans-5.2.3.RELEASE.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/spring-jdbc-5.2.3.RELEASE.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-context-5.2.3.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-jdbc-5.2.3.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
