@@ -16,15 +16,10 @@ import java.util.List;
 public class DBtool {
     static DataSource ds = null;
     private static int IsFrist = 0;
-<<<<<<< HEAD
-    private static final String dataPath = "D:\\code\\java\\博客\\Ablog";
-=======
-
     //数据库以及文章、图片等数据文件位置
     private static final String dataPath = "/home/kic/Ablog/";
->>>>>>> 5a57cd4677cc7dc4f87fb132db96a8d8ddf7ee4a
     //数据库地址
-    private static final String filePath = dataPath + ".db";
+    private static final String filePath = dataPath + "Ablog" + ".db";
     private static final String DbUrl = "jdbc:sqlite:" + filePath;
 
     //默认附件和数据库统一存放，不在项目下
