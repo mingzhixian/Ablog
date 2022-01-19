@@ -16,6 +16,8 @@ import java.util.List;
 public class DBtool {
     static DataSource ds = null;
     private static int IsFrist = 0;
+
+    //数据库以及文章、图片等数据文件位置
     private static final String dataPath = "/home/kic/Ablog/";
     //数据库地址
     private static final String filePath = dataPath + "Ablog.db";

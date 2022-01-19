@@ -22,6 +22,7 @@ import java.util.Objects;
 public class controller {
 
 
+    //获取文章Url  --第一版，目前未使用
     @RequestMapping(value = "GetArtUrl", method = RequestMethod.GET, produces = "text/json;charset=UTF-8")
     @ResponseBody
     public String GetArtUrl(@RequestParam("ArtName") String ArtName) throws SQLException {
@@ -29,9 +30,9 @@ public class controller {
     }
 
 
+    //根据文章名以及获取参数Url，返回对应md文件
     @RequestMapping(value = "GetMd", method = RequestMethod.GET)
-    public void GetMd(@RequestParam("Url") String Url, @RequestParam("ArtName") String ArtName,
-                      HttpServletResponse response) throws SQLException, IOException {
+    public void GetMd(@RequestParam("Url") String Url, @RequestParam("ArtName") String ArtName, HttpServletResponse response) throws SQLException, IOException {
 
         //设置响应头
         response.setHeader("content-disposition", "attachment;filename=" + URLEncoder.encode(ArtName, StandardCharsets.UTF_8));
@@ -60,4 +61,11 @@ public class controller {
         inputStream.close();
         outputStream.close();
     }
+
+    //接受文本，保存为md文件,存入文件夹（getDataPath()），写入数据库
+//    {
+//        ArtName:文章名字;
+//        ArtText:文章内容
+//    }
+//    todo：数据库新建数据，保存文章内容为md文件，存入getDataPath()/Art文件夹，在getDataPath()/Com文件夹下新建一个新的空的md文件（存放评论的）。
 }
