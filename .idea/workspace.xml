@@ -6,7 +6,23 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc5b728a-25f9-4610-9aba-9bb402d1c47e" name="变更" comment="" />
+    <list default="true" id="cc5b728a-25f9-4610-9aba-9bb402d1c47e" name="变更" comment="变更">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a23d6b41-b8b1-4ab7-956f-184378d66094.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a23d6b41-b8b1-4ab7-956f-184378d66094.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Ablog/Ablog.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Ablog/Ablog.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ablog/controller/controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/controller/controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ablog/dao/DBtool.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/dao/DBtool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/Article.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/GetArt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/GetArt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DBtool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DBtool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/text.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web/index.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,15 +32,18 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FormatOnSaveOptions">
     <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -47,13 +66,15 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jsp-api.jar" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/dao/db_init.sql" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -68,6 +89,7 @@
       <recent name="$PROJECT_DIR$/src/dao" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\code\java\博客\Ablog\web" />
       <recent name="$PROJECT_DIR$/web/WEB-INF/web" />
       <recent name="$PROJECT_DIR$/web/WEB-INF" />
     </key>
@@ -163,10 +185,34 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <created>1642572005269</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642572005269</updated>
+      <workItem from="1642572006598" duration="8373000" />
+      <workItem from="1642581227720" duration="4593000" />
+      <workItem from="1642585876564" duration="36000" />
+    </task>
+    <servers />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.md" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

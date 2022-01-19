@@ -12,5 +12,10 @@
   </head>
   <body>
   <h1>${hello}</h1>
+  <form action="./SaveMd" method="post">
+    <input type="text" name="ArtName" placeholder="artname">
+    <input type="text" name="ArtText" placeholder="ArtText">
+    <button type="submit" value="tijiao"></button>
+  </form>
   </body>
 </html>
