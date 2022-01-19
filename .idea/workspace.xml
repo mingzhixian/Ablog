@@ -7,21 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc5b728a-25f9-4610-9aba-9bb402d1c47e" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a23d6b41-b8b1-4ab7-956f-184378d66094.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a23d6b41-b8b1-4ab7-956f-184378d66094.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Ablog/Ablog.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Ablog/Ablog.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/controller/controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/controller/controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Ablog/dao/DBtool.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/dao/DBtool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/Article.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/GetArt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/GetArt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/DBtool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DBtool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/text.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +183,7 @@
       <updated>1642572005269</updated>
       <workItem from="1642572006598" duration="8373000" />
       <workItem from="1642581227720" duration="4593000" />
-      <workItem from="1642585876564" duration="36000" />
+      <workItem from="1642585876564" duration="495000" />
     </task>
     <servers />
   </component>
