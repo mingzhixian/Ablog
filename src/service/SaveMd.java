@@ -13,6 +13,7 @@ public class SaveMd {
         String comUrl = DBtool.getDataPath() + "/Com/" + artName + ".md";
         String sql = String.format("insert into Art ('ArtName', 'ArtUrl', 'ComUrl')" +
                 "values ('%s', '%s', '%s');", artName, artUrl, comUrl);
+        String com="- 欢迎来打脸";
         File artfile = new File(artUrl);
         File comFile = new File(comUrl);
 
@@ -22,6 +23,8 @@ public class SaveMd {
 
         //写入数据
         FileWriter writer = new FileWriter(artfile);
+        FileWriter comWriter= new FileWriter(comFile);
+        comWriter.write(com);
         writer.write(artText);
         writer.flush();
         writer.close();
