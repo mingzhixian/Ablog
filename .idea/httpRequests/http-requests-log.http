@@ -1,0 +1,39 @@
+POST http://localhost:8080/Ablog/SaveArt
+Content-Type: application/json
+
+{
+  "ArtName": "测试题目",
+  "ArtText": "测试正文",
+  "Type": "测试类型"
+}
+
+<> 2022-01-21T144556.405.html
+
+###
+
+POST http://localhost:8080/Ablog/SaveArt
+Content-Type: application/json
+
+{
+  "ArtName": "测试题目",
+  "ArtText": "测试正文",
+  "Type": "测试类型"
+}
+
+<> 2022-01-21T144415.400.html
+
+###
+
+POST http://localhost:8080/Ablog/SaveArt
+Content-Type: application/json
+
+{
+  "ArtName": "测试题目",
+  "ArtText": "测试正文",
+  "Type": "测试类型"
+}
+
+<> 2022-01-21T144310.400.html
+
+###
+

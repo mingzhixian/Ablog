@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DBtool {
     static DataSource ds = null;
@@ -85,19 +86,38 @@ public class DBtool {
         return a;
     }
 
-    public static Article GetArt(String sql) throws SQLException {
-        Article article = new Article();
+    public static List<Article> GetArt(String sql) throws SQLException {
+        List<Article> articles = new ArrayList<>();
         try (Connection connection = getconnection()) {
             try (Statement statement = connection.createStatement()) {
                 ResultSet one = statement.executeQuery(sql);
                 while (one.next()) {
-                    article = new Article(one.getString("ArtName"), one.getString("ArtUrl"), one.getString("ComUrl"));
+                    articles.add(new Article(one.getString("ArtName"), one.getString("ArtUrl"), one.getString("ComUrl"), one.getString("Type"), one.getString("Date")));
                 }
             }
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
-        return article;
+        return articles;
+    }
+
+    //返回所有type
+    public static List<String> GetType() throws SQLException {
+        List<String> strings = new ArrayList<>();
+        String sql = "select * from Art;";
+        try (Connection connection = getconnection()) {
+            try (Statement statement = connection.createStatement()) {
+                ResultSet one = statement.executeQuery(sql);
+                while (one.next()) {
+                    if (!Objects.equals(one.getString("Type"), "index")) {
+                        strings.add(one.getString("Type"));
+                    }
+                }
+            }
+        } catch (ClassNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
+        return strings;
     }
 
     private static void SqlInit(Connection connection) throws SQLException, IOException {

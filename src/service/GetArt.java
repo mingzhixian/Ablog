@@ -11,6 +11,6 @@ public class GetArt {
 
     public static Article GetArt(String ArtName) throws SQLException {
         String str = String.format(sql, ArtName);
-        return DBtool.GetArt(str);
+        return DBtool.GetArt(str).get(0);
     }
 }
