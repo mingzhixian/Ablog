@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class ListToMd {
-    private static HashMap<String, StringBuilder> Types = new HashMap<String, StringBuilder>();
+    private static HashMap<String, StringBuilder> Types = new HashMap<>();
 
     public static boolean ListToMd() throws SQLException, IOException, ClassNotFoundException {
         String sql = "select * from Art;";
@@ -34,7 +34,7 @@ public class ListToMd {
         }
         //增加记录
         String str = "- [%s](%s)(最后更新日期：%s)\n";
-        String Url = Get.GetArtShowUrl() + "?article=" + article.getArtName();
+        String Url = "./article.html?article=" + article.getArtName();
         Types.get(article.getType()).append(String.format(str, article.getArtName(), Url, article.getDate()));
     }
 

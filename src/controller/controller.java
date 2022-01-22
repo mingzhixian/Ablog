@@ -19,16 +19,8 @@ import java.sql.SQLException;
 @Controller
 public class controller {
 
-    //获取文章Url  --第一版，目前未使用
-    @RequestMapping(value = "GetArtUrl", method = RequestMethod.GET, produces = "text/json;charset=UTF-8")
-    @ResponseBody
-    public String GetArtUrl(@RequestParam("ArtName") String ArtName) throws SQLException {
-        return GetArt.GetArt(ArtName).toString();
-    }
-
-
     //根据文章名以及获取参数Url，返回对应md文件
-    @RequestMapping(value = "GetArt", method = RequestMethod.GET)
+    @RequestMapping(value = "GetArt.do", method = RequestMethod.GET)
     public void GetMd(@RequestParam("Url") String Url, @RequestParam("ArtName") String ArtName, HttpServletResponse response) throws SQLException, IOException {
         //设置响应头
         response.setHeader("content-disposition", "attachment;filename=" + URLEncoder.encode(ArtName, StandardCharsets.UTF_8));
@@ -48,7 +40,7 @@ public class controller {
 
 
     //根据提交的表单生成md文件，并添加数据库
-    @RequestMapping(value = "SaveArt", method = RequestMethod.POST)
+    @RequestMapping(value = "SaveArt.do", method = RequestMethod.POST)
     public void SaveArt(@RequestParam("ArtName") String artName, @RequestParam("ArtText") String artText, @RequestParam("Type") String type, HttpServletResponse response, HttpServletRequest request) throws IOException,
             SQLException, ClassNotFoundException {
         //区分修改还是新建
@@ -66,7 +58,7 @@ public class controller {
 
 
     //返回所有的type类型
-    @RequestMapping(value = "GetType", method = RequestMethod.GET, produces = "text/json;charset=UTF-8")
+    @RequestMapping(value = "GetType.do", method = RequestMethod.GET, produces = "text/json;charset=UTF-8")
     @ResponseBody
     public String GetType() throws SQLException {
         return GetType.GetType();
@@ -74,7 +66,7 @@ public class controller {
 
 
     //删除文章
-    @RequestMapping(value = "DelArt", method = RequestMethod.POST)
+    @RequestMapping(value = "DelArt.do", method = RequestMethod.POST)
     public void DelArt(@RequestParam("ArtName") String artName, HttpServletResponse response) throws SQLException, IOException, ClassNotFoundException {
         DelMd.DelMd(artName);
         ListToMd.ListToMd();
@@ -84,11 +76,9 @@ public class controller {
 
 
     //增加评论
-    @RequestMapping(value = "AddCom", method = RequestMethod.POST)
+    @RequestMapping(value = "AddCom.do", method = RequestMethod.POST)
     public void AddCom(@RequestParam("ArtName") String artName, @RequestParam("ComText") String comText, HttpServletResponse response) throws IOException {
         AddCom.AddCom(artName, comText);
-        //返回信息
         response.getWriter().write("{\"AddCom\":\"success\"}");
     }
-
 }
