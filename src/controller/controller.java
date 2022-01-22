@@ -72,12 +72,23 @@ public class controller {
         return GetType.GetType();
     }
 
+
+    //删除文章
     @RequestMapping(value = "DelArt", method = RequestMethod.POST)
-    public void DelArt(@RequestParam("ArtName") String artName, HttpServletResponse response) throws SQLException,
-            IOException, ClassNotFoundException {
+    public void DelArt(@RequestParam("ArtName") String artName, HttpServletResponse response) throws SQLException, IOException, ClassNotFoundException {
         DelMd.DelMd(artName);
         ListToMd.ListToMd();
         //返回信息
         response.getWriter().write("{\"DelArt\":\"success\"}");
     }
+
+
+    //增加评论
+    @RequestMapping(value = "AddCom", method = RequestMethod.POST)
+    public void AddCom(@RequestParam("ArtName") String artName, @RequestParam("ComText") String comText, HttpServletResponse response) throws IOException {
+        AddCom.AddCom(artName, comText);
+        //返回信息
+        response.getWriter().write("{\"AddCom\":\"success\"}");
+    }
+
 }

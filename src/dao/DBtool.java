@@ -109,7 +109,7 @@ public class DBtool {
             try (Statement statement = connection.createStatement()) {
                 ResultSet one = statement.executeQuery(sql);
                 while (one.next()) {
-                    if (!Objects.equals(one.getString("Type"), "index")) {
+                    if (!Objects.equals(one.getString("Type"), "index") && !strings.contains(one.getString("Type"))) {
                         strings.add(one.getString("Type"));
                     }
                 }
