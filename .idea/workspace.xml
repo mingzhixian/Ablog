@@ -23,8 +23,8 @@
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="HTTP Request" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>

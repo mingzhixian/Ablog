@@ -10,8 +10,11 @@ import java.util.Objects;
 
 public class ListToMd {
     private static HashMap<String, StringBuilder> Types = new HashMap<>();
+    private static HashMap<String, StringBuilder> AblogManager = new HashMap<>();
 
     public static boolean ListToMd() throws SQLException, IOException, ClassNotFoundException {
+        Types.clear();
+        AblogManager.clear();
         String sql = "select * from Art;";
         List<Article> articles = DBtool.GetArt(sql);
 
@@ -36,6 +39,8 @@ public class ListToMd {
         String str = "- [%s](%s)(最后更新日期：%s)\n";
         String Url = "./article.html?article=" + article.getArtName();
         Types.get(article.getType()).append(String.format(str, article.getArtName(), Url, article.getDate()));
+        String Url2 = "./editor.html?article=" + article.getArtName();
+        AblogManager.get(article.getType()).append(String.format(str, article.getArtName(), Url2, article.getDate()));
     }
 
     //新增Type
@@ -43,6 +48,9 @@ public class ListToMd {
         StringBuilder one = new StringBuilder();
         one.append("# ").append(type).append("\n");
         Types.put(type, one);
+        StringBuilder two = new StringBuilder();
+        two.append("# ").append(type).append("\n");
+        AblogManager.put(type, two);
     }
 
     private static void ToSaveMd() throws SQLException, IOException, ClassNotFoundException {
@@ -52,5 +60,12 @@ public class ListToMd {
         });
         //博客首页欢迎语
         SaveMd.SaveMd("欢迎来到LJ与鸣之弦的博客", str.toString(), "index");
+
+        StringBuilder str2 = new StringBuilder();
+        AblogManager.forEach((key, value) -> {
+            str2.append(value.toString());
+        });
+        //博客首页欢迎语
+        SaveMd.SaveMd("AblogManager", str2.toString(), "index");
     }
 }

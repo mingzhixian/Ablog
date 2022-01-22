@@ -120,10 +120,10 @@ function del() {
         $.ajax({
             url: GetDel(),
             type: "post",
-            data: {"ArtName": title},
+            data: {"ArtName": document.getElementById("title").value},
             dataType: "json"
         }).done(function () {
-            window.open(GetArt() + "index");
+            window.open(GetArt() + "AblogManager");
         }).fail(function (xhr, status) {
             console.log(status);
         });

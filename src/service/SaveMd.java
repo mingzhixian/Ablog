@@ -39,6 +39,7 @@ public class SaveMd {
         comWriter.close();
 
         //添加数据库记录
+        DBtool.excute("delete from Art where ArtName='" + artName + "';");
         DBtool.excute(sql);
     }
 }
