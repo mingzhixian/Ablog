@@ -22,9 +22,9 @@
         <option value="spring-beans.schema" />
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="HTTP Request" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>

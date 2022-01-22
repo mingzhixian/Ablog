@@ -129,7 +129,7 @@ function DayAndNight() {
     var select = document.getElementById("SetImg");
     var head = document.getElementsByTagName("head")[0];
     var color = new Array();
-    var str = head.innerHTML;
+    var NewUrl = null;
     if (select.getAttribute("alt") == "night") {
         //网页背景颜色
         color[0] = "#262622";
@@ -161,9 +161,8 @@ function DayAndNight() {
         document.getElementById("SetImg").src = "resource/img/set-night.svg";
 
         select.setAttribute('alt', 'day');
+        NewUrl = "resource/css/github-markdown-night.css";
 
-        str = str.substring(0, str.indexOf('<link rel="stylesheet" href="resource/css/github-markdown-day.css">'));
-        str = str + '<link rel="stylesheet" href="resource/css/github-markdown-night.css">';
     } else if (select.getAttribute("alt") == "day") {
         //网页背景颜色
         color[0] = "#f2f8f2";
@@ -195,17 +194,22 @@ function DayAndNight() {
         document.getElementById("SetImg").src = "resource/img/set-day.svg";
 
         select.setAttribute('alt', 'night');
-
-        str = str.substring(0, str.indexOf('<link rel="stylesheet" href="resource/css/github-markdown-night.css">'));
-        str = str + '<link rel="stylesheet" href="resource/css/github-markdown-day.css">';
+        NewUrl = "resource/css/github-markdown-day.css";
     }
-    var style = "<style>#Title{color:" + color[1] + "}#article,#comment,#directory{color:" + color[3] + ";border-color:" + color[4] + "}#directory a{color:" + color[5] + "}#directory a:hover{color:" + color[6] + "}.Bottom{color:" + color[7] + ";}#ComSub{background-color: " + color[8] + ";color: " + color[9] + ";}</style>"
-    document.getElementsByTagName("body")[0].style.backgroundColor = color[0];
-    document.getElementById("article").style.backgroundColor = color[2];
-    document.getElementById("comment").style.backgroundColor = color[2];
-    document.getElementById("directory").style.backgroundColor = color[2];
-    document.getElementById("ComText").style.backgroundColor = color[10];
-    setTimeout(function (str, style, head) {
-        head.innerHTML = str + style;
-    }, 300, str, style, head);
+
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = NewUrl;
+    head.removeChild(head.lastChild);
+    head.appendChild(link);
+
+    $('body').css({"background-color": color[0]});
+    $('#article,#comment,#directory').css({"background-color": color[2], "color": color[3], "border-color": color[4]});
+    $('#ComText').css({"background-color": color[10]});
+    $('#Title').css({"color": color[1]});
+    $('#directory a').css({"color": color[5]});
+    $('#directory a:hover').css({"color": color[6]});
+    $('.Bottom').css({"color": color[7]});
+    $('#ComSub').css({"color": color[9], "background-color": color[8]});
 }

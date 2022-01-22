@@ -1,7 +1,6 @@
 var input = null;
 var type = null;
-var converter = new showdown.Converter({ tables: true });
-var showAuto = null;
+var converter = new showdown.Converter({tables: true});
 window.onload = function () {
     window.addEventListener('keydown', Input);
     Update();
@@ -20,7 +19,7 @@ function GetTypes() {
             var str = "<option value='" + output[i].type + "'>" + output[i].type + "</option>";
             typeselect.innerHTML += str;
         }
-        typeselect.innerHTML +="<option value=‘新增加’>新增加</option>";
+        typeselect.innerHTML += "<option value=‘新增加’>新增加</option>";
         typeSelect();
     }).fail(function (xhr, status) {
         console.log(status);
@@ -33,10 +32,9 @@ function typeSelect() {
     if (selected == '新增加') {
         document.getElementById("type").style.display = "block";
         type = "新增加";
-    }
-    else {
+    } else {
         document.getElementById("type").style.display = "none";
-        type=null;
+        type = null;
     }
 }
 
@@ -58,7 +56,8 @@ function Update() {
             type: "get",
             dataType: "html"
         }).done(function (output) {
-            document.getElementById("article").value = output;;
+            document.getElementById("article").value = output;
+            ;
             ShowDown();
         }).fail(function (xhr, status) {
             console.log(status);
@@ -68,6 +67,7 @@ function Update() {
 
 //防抖函数
 var timeout = null;
+
 function antishake() {
     if (timeout != null) {
         clearTimeout(timeout);
@@ -95,18 +95,16 @@ function sub() {
     var title = document.getElementById("title").value;
     if (input == "" || title == "") {
         alert("输入为空！");
-    }
-    else {
+    } else {
         if (type == "新增加") {
             type = document.getElementById("type").value;
-        }
-        else {
+        } else {
             type = document.getElementById("typeSelect").options[document.getElementById("typeSelect").selectedIndex].text;
         }
         $.ajax({
             url: GetSub(),
             type: "post",
-            data: { "ArtName": title, "ArtText": input, "Type": type },
+            data: {"ArtName": title, "ArtText": input, "Type": type},
             dataType: "json"
         }).done(function () {
             window.open(GetArt() + title);
@@ -122,7 +120,7 @@ function del() {
         $.ajax({
             url: GetDel(),
             type: "post",
-            data: { "ArtName": title },
+            data: {"ArtName": title},
             dataType: "json"
         }).done(function () {
             window.open(GetArt() + "index");
@@ -137,7 +135,7 @@ function DayAndNight() {
     var select = document.getElementById("SetImg");
     var head = document.getElementsByTagName("head")[0];
     var color = new Array();
-    var str = head.innerHTML;
+    var NewUrl = null;
     if (select.getAttribute("alt") == "night") {
         //网页背景颜色
         color[0] = "#262622";
@@ -165,11 +163,8 @@ function DayAndNight() {
         document.getElementById("SetImg").src = "resource/img/set-night.svg";
 
         select.setAttribute('alt', 'day');
-
-        str = str.substring(0, str.indexOf('<link rel="stylesheet" href="resource/css/github-markdown-day.css">'));
-        str = str + '<link rel="stylesheet" href="resource/css/github-markdown-night.css">';
-    }
-    else if (select.getAttribute("alt") == "day") {
+        NewUrl = "resource/css/github-markdown-night.css";
+    } else if (select.getAttribute("alt") == "day") {
         //网页背景颜色
         color[0] = "#f2f8f2";
         //编写、预览、题目栏栏头字体颜色
@@ -196,18 +191,22 @@ function DayAndNight() {
         document.getElementById("SetImg").src = "resource/img/set-day.svg";
 
         select.setAttribute('alt', 'night');
-
-        str = str.substring(0, str.indexOf('<link rel="stylesheet" href="resource/css/github-markdown-night.css">'));
-        str = str + '<link rel="stylesheet" href="resource/css/github-markdown-day.css">';
+        NewUrl = "resource/css/github-markdown-day.css";
     }
-    var style = "<style>#article-ti p,#article-sh p,#article-md p{color: " + color[1] + ";}#article,#showdown,#title{color:" + color[3] + ";border-color: " + color[4] + ";}#sub,#del{background-color: " + color[5] + ";color: " + color[6] + ";}.bottom{color:" + color[7] + ";}#typeSelect{color: " + color[6] + ";}</style>";
-    document.getElementsByTagName("body")[0].style.backgroundColor = color[0];
-    document.getElementById("article").style.backgroundColor = color[2];
-    document.getElementById("showdown").style.backgroundColor = color[2];
-    document.getElementById("title").style.backgroundColor = color[2];
-    document.getElementById("type").style.backgroundColor = color[2];
-    document.getElementById("typeSelect").style.backgroundColor = color[8];
-    setTimeout(function (str, style, head) {
-        head.innerHTML = str + style;
-    }, 300, str, style, head);
+
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = NewUrl;
+    head.removeChild(head.lastChild);
+    head.appendChild(link);
+
+    $('body').css({"background-color": color[0]});
+    $('#article,#showdown,#title').css({"background-color": color[2], "color": color[3], "border-color": color[4]});
+    $('#typeSelect').css({"background-color": color[8], "color": color[6]});
+    $('#article-ti p,#article-sh p,#article-md p').css({"color": color[1]});
+    $('#type').css({"background-color": color[2]});
+    $('#sub,#del').css({"background-color": color[5], "color": color[6]});
+    $('.bottom').css({"color": color[7]});
+
 }

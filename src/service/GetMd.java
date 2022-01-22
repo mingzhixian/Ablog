@@ -16,7 +16,6 @@ public class GetMd {
         } else {
             filePath = GetArt.GetArt(ArtName).getComUrl();
         }
-        System.out.println(filePath);
         //获取文件
         File file = new File(filePath);
         InputStream inputStream = new FileInputStream(file);

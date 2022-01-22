@@ -11,7 +11,6 @@
     <script src="resource/js/showdown.js"></script>
     <script src="resource/js/get.js"></script>
     <script src="resource/js/article.js"></script>
-    <link rel="stylesheet" href="resource/css/github-markdown-day.css">
     <style>
         body {
             background-color: #f2f8f2
@@ -45,40 +44,42 @@
             background-color: #719596;
             color: #16181a;
         }
-        #ComText{
+
+        #ComText {
             background-color: #fcfffe;
         }
     </style>
+    <link rel="stylesheet" href="resource/css/github-markdown-day.css">
 </head>
 
 <body>
-    <div class="head">
-        <img id="AblogImg" src="resource/img/Ablog-day.svg" alt="Ablog">
-        <img id="SetImg" src="resource/img/set-day.svg" onclick="DayAndNight()" alt="night">
-        <div class="FloatEnd"></div>
+<div class="head">
+    <img id="AblogImg" src="resource/img/Ablog-day.svg" alt="Ablog">
+    <img id="SetImg" src="resource/img/set-day.svg" onclick="DayAndNight()" alt="night">
+    <div class="FloatEnd"></div>
+</div>
+<div class="Body">
+    <div id="Title">
+        <!--标题-->
     </div>
-    <div class="Body">
-        <div id="Title">
-            <!--标题-->
-        </div>
-        <div id="directory">
-            <!--目录-->
-        </div>
-        <div id="article" class="markdown-body">
-            <!--文章-->
-        </div>
-        <div id="comment" class="markdown-body">
-            <div id="AddCom"><textarea id="ComText"></textarea>
-                <div id="ComSub" onclick="AddCom()">提交</div>
-            </div>
-            <!--评论-->
-        </div>
-        <div class="FloatEnd"></div>
+    <div id="directory">
+        <!--目录-->
     </div>
-    <div class="Bottom">
-        <p>Ablog</p>
-        <p>鸣之弦与LJ的博客</p>
+    <div id="article" class="markdown-body">
+        <!--文章-->
     </div>
+    <div id="comment" class="markdown-body">
+        <div id="AddCom"><textarea id="ComText"></textarea>
+            <div id="ComSub" onclick="AddCom()">提交</div>
+        </div>
+        <!--评论-->
+    </div>
+    <div class="FloatEnd"></div>
+</div>
+<div class="Bottom">
+    <p>Ablog</p>
+    <p>鸣之弦与LJ的博客</p>
+</div>
 </body>
 
 </html>

@@ -14,7 +14,9 @@ public class GetType {
             String string = strings.get(i);
             stringBuilder.append("{\"type\":\"").append(string).append("\"},");
         }
-        stringBuilder.append("{\"type\":\"").append(strings.get(strings.size() - 1)).append("\"}");
+        if (strings.size() > 0) {
+            stringBuilder.append("{\"type\":\"").append(strings.get(strings.size() - 1)).append("\"}");
+        }
         stringBuilder.append("\n]");
         return stringBuilder.toString();
     }

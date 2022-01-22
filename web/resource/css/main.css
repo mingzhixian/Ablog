@@ -6,12 +6,11 @@
 
 @font-face {
     font-family: AblogFont;
-    src: url("../../resource/font/font.subset.woff2");
+    src: url("../font/font.subset.woff2");
 }
 
 body {
     font-family: AblogFont, serif;
-    transition: background-color 600ms;
 }
 
 .FloatEnd {
@@ -47,6 +46,11 @@ body {
     text-align: center;
     font-size: 18px;
 }
-.ignore{
+
+.ignore {
     display: none;
+}
+
+pre {
+    transition: background-color 700ms;
 }
