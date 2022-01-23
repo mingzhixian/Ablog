@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
+import java.util.Base64;
 
 @Controller
 public class controller {
@@ -81,4 +82,17 @@ public class controller {
         AddCom.AddCom(artName, comText);
         response.getWriter().write("{\"AddCom\":\"success\"}");
     }
+
+
+    @RequestMapping(value = "login.do")
+    @ResponseBody
+    public String login(HttpServletRequest req, HttpServletResponse res) {
+        if (!isAuth.isAuth(req, res)) {
+            return "{code: 401, msg: \"no auth\"}";
+        }
+
+        return "{code: 0, data: {username:\"test\"}}";
+    }
+
+
 }
