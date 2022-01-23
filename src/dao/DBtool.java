@@ -18,7 +18,7 @@ public class DBtool {
     static DataSource ds = null;
     private static int IsFrist = 0;
     //数据库以及文章、图片等数据文件位置
-    private static final String dataPath = "/home/kic/Ablog/";
+    private static final String dataPath = "D:\\code\\java\\博客\\";
     //数据库地址
     private static final String filePath = dataPath + "Ablog" + ".db";
     private static final String DbUrl = "jdbc:sqlite:" + filePath;
@@ -28,6 +28,7 @@ public class DBtool {
         return dataPath;
     }
 
+    //设置数据库连接池
     private static void setDataSource() throws ClassNotFoundException {
         new File(filePath).getParentFile().mkdirs();
         Class.forName("org.sqlite.JDBC");
@@ -39,6 +40,7 @@ public class DBtool {
         ds = new HikariDataSource(config);
     }
 
+    //获取数据库连接
     private static Connection getconnection() throws ClassNotFoundException, SQLException, IOException {
         if (ds == null) {
             setDataSource();
@@ -58,6 +60,7 @@ public class DBtool {
         }
     }
 
+    //执行单条语句
     public static void excute(String str) throws SQLException, ClassNotFoundException, IOException {
         try (Connection connection = getconnection()) {
             try (Statement statement = connection.createStatement()) {
@@ -66,6 +69,7 @@ public class DBtool {
         }
     }
 
+    //执行多条语句
     public static void excuteBatch(List<String> sqls) throws SQLException, IOException, ClassNotFoundException {
         try (Connection connection = getconnection()) {
             try (Statement statement = connection.createStatement()) {
@@ -76,6 +80,7 @@ public class DBtool {
         }
     }
 
+    //获取对应表的所有记录数量
     public static int allEle(String table) throws SQLException, IOException, ClassNotFoundException {
         int a;
         try (Connection connection = getconnection()) {
@@ -86,6 +91,7 @@ public class DBtool {
         return a;
     }
 
+    //按照sql语句获取所有文章对象
     public static List<Article> GetArt(String sql) throws SQLException {
         List<Article> articles = new ArrayList<>();
         try (Connection connection = getconnection()) {
@@ -120,6 +126,7 @@ public class DBtool {
         return strings;
     }
 
+    //数据库初始化
     private static void SqlInit(Connection connection) throws SQLException, IOException {
         // 创建ScriptRunner，用于执行SQL脚本
         ScriptRunner runner = new ScriptRunner(connection, false, false);
