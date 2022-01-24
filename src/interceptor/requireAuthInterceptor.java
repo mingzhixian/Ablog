@@ -1,2 +1,4 @@
-package interceptor;public class requireAuthInterceptor {
+package interceptor;
+
+public class requireAuthInterceptor {
 }
