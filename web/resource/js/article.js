@@ -55,7 +55,7 @@ window.onload = function () {
         type: "get",
         dataType: "json"
     }).done(function (output) {
-        document.getElementById("Browse").innerHTML = output.Browse;
+        document.getElementById("Browse").innerHTML = "浏览次数：" + output.Browse;
     }).fail(function (xhr, status) {
         console.log(status);
     });
@@ -144,7 +144,7 @@ function DayAndNight() {
     if (select.getAttribute("alt") == "night") {
         //网页背景颜色
         color[0] = "#262622";
-        //文章标题颜色
+        //文章标题、浏览次数字体颜色
         color[1] = "darkgray";
         //文章、评论、目录栏背景颜色
         color[2] = "#22211f";
@@ -218,7 +218,7 @@ function DayAndNight() {
     $('body').css({"background-color": color[0]});
     $('#article,#comment,#directory').css({"background-color": color[2], "color": color[3], "border-color": color[4]});
     $('#ComText').css({"background-color": color[10]});
-    $('#Title').css({"color": color[1]});
+    $('#Title,#Browse').css({"color": color[1]});
     $('#directory a').css({"color": color[5]});
     $('#directory a:hover').css({"color": color[6]});
     $('.Bottom').css({"color": color[7]});
