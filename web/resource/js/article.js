@@ -37,7 +37,7 @@ window.onload = function () {
     }).fail(function (xhr, status) {
         console.log(status);
     });
-    if (getvl("article") == null || getvl("article") == "欢迎来到LJ与鸣之弦的博客") {
+    if (getvl("article") == null || getvl("article") === "欢迎来到LJ与鸣之弦的博客") {
         document.getElementById("comment").style.display = "none";
     } else {
         $.ajax({
@@ -45,17 +45,18 @@ window.onload = function () {
             type: "get",
             dataType: "html"
         }).done(function (output) {
-            ShowDown(output, "comment", 0);
+            ShowDown(output, "Com", 0);
         }).fail(function (xhr, status) {
             console.log(status);
         });
     }
+    //浏览次数
     $.ajax({
         url: Broswse,
         type: "get",
         dataType: "json"
     }).done(function (output) {
-        document.getElementById("Browse").innerHTML = output.Browse;
+        document.getElementById("Browse").innerHTML = "浏览次数：" + output.Browse;
     }).fail(function (xhr, status) {
         console.log(status);
     });
@@ -81,13 +82,8 @@ function MoreDevices() {
 
 //解析md文件并展示
 function ShowDown(output, dom, IsDir) {
-    var html = converter.makeHtml(output);
-    if (dom == "comment") {
-        document.getElementById(dom).innerHTML = "<div id=\"AddCom\"><textarea id=\"ComText\"></textarea><div id=\"ComSub\" onclick=\"AddCom()\">提交</div></div><div class=\"FloatEnd\"></div>" + html;
-    } else {
-        document.getElementById(dom).innerHTML = html;
-    }
-    if (IsDir == 1) {
+    document.getElementById(dom).innerHTML = converter.makeHtml(output);
+    if (IsDir === 1) {
         directory();
     }
 }
@@ -110,29 +106,45 @@ function directory() {
 //点击目录滚动到对应位置
 function GoTo(link) {
     $("html,body").animate({scrollTop: $(link).offset().top}, 400);
-};
+}
 
 //添加评论
 function AddCom() {
     var Comtext = document.getElementById("ComText").value;
-    $.ajax({
-        url: GetAddCom(),
-        type: "post",
-        data: {"ArtName": getvl("article"), "ComText": Comtext},
-        dataType: "json"
-    }).done(function () {
+    if (BadCom(Comtext)) {
+        alert("包含违规评论！");
+    } else {
         $.ajax({
-            url: ComUrl,
-            type: "get",
-            dataType: "html"
-        }).done(function (output) {
-            ShowDown(output, "comment", 0);
+            url: GetAddCom(),
+            type: "post",
+            data: {"ArtName": getvl("article"), "ComText": Comtext},
+            dataType: "json"
+        }).done(function () {
+            $.ajax({
+                url: ComUrl,
+                type: "get",
+                dataType: "html"
+            }).done(function (output) {
+                ShowDown(output, "Com", 0);
+                document.getElementById("ComText").value = "";
+            }).fail(function (xhr, status) {
+                console.log(status);
+            });
         }).fail(function (xhr, status) {
             console.log(status);
         });
-    }).fail(function (xhr, status) {
-        console.log(status);
-    });
+    }
+}
+
+//垃圾评论检测,包含违规词语则返回true
+function BadCom(ComText) {
+    var BadKey = ["傻逼", "混蛋", "傻缺", "傻B", "傻b", "呆子", "操你妈", "艹", "滚蛋", "滚你妈的"];
+    for (key in BadKey) {
+        if (ComText.indexOf(BadKey[key]) > -1) {
+            return true;
+        }
+    }
+    return false;
 }
 
 //黑白主题切换
@@ -144,7 +156,7 @@ function DayAndNight() {
     if (select.getAttribute("alt") == "night") {
         //网页背景颜色
         color[0] = "#262622";
-        //文章标题颜色
+        //文章标题、浏览次数字体颜色
         color[1] = "darkgray";
         //文章、评论、目录栏背景颜色
         color[2] = "#22211f";
@@ -218,7 +230,7 @@ function DayAndNight() {
     $('body').css({"background-color": color[0]});
     $('#article,#comment,#directory').css({"background-color": color[2], "color": color[3], "border-color": color[4]});
     $('#ComText').css({"background-color": color[10]});
-    $('#Title').css({"color": color[1]});
+    $('#Title,#Browse').css({"color": color[1]});
     $('#directory a').css({"color": color[5]});
     $('#directory a:hover').css({"color": color[6]});
     $('.Bottom').css({"color": color[7]});
