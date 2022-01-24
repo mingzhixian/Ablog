@@ -1,6 +1,7 @@
 var converter = new showdown.Converter({tables: true});
 var ArtUrl = null;
 var ComUrl = null;
+var Broswse = null;
 //服务器后台地址
 var CloudUrl = GetCloud();
 
@@ -19,6 +20,7 @@ function getUrl() {
     }
     ArtUrl = CloudUrl + tilte + "&Url=ArtUrl";
     ComUrl = CloudUrl + tilte + "&Url=ComUrl";
+    Broswse = "./GetBrowse.do?ArtName=" + tilte;
     document.getElementById("Title").innerHTML = tilte;
 }
 
@@ -48,6 +50,15 @@ window.onload = function () {
             console.log(status);
         });
     }
+    $.ajax({
+        url: Broswse,
+        type: "get",
+        dataType: "json"
+    }).done(function (output) {
+        document.getElementById("Browse").innerHTML = output.Browse;
+    }).fail(function (xhr, status) {
+        console.log(status);
+    });
 }
 
 //适应小屏

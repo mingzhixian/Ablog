@@ -6,16 +6,18 @@ public class Article {
     private String ComUrl = "404";
     private String Type = "404";
     private String Date = "404";
+    private int Browse = 0;
 
     public Article() {
     }
 
-    public Article(String artName, String artUrl, String comUrl, String type, String date) {
+    public Article(String artName, String artUrl, String comUrl, String type, String date, int browse) {
         ArtName = artName;
         ArtUrl = artUrl;
         ComUrl = comUrl;
-        this.Type = type;
-        this.Date = date;
+        Type = type;
+        Date = date;
+        Browse = browse;
     }
 
     public String getArtName() {
@@ -47,7 +49,7 @@ public class Article {
     }
 
     public void setType(String type) {
-        this.Type = type;
+        Type = type;
     }
 
     public String getDate() {
@@ -55,17 +57,26 @@ public class Article {
     }
 
     public void setDate(String date) {
-        this.Date = date;
+        Date = date;
+    }
+
+    public int getBrowse() {
+        return Browse;
+    }
+
+    public void setBrowse(int browse) {
+        Browse = browse;
     }
 
     @Override
     public String toString() {
         return "{" +
-                "ArtName:'" + ArtName + '\'' +
-                ", ArtUrl:'" + ArtUrl + '\'' +
-                ", ComUrl:'" + ComUrl + '\'' +
-                ", Type:'" + Type + '\'' +
-                ", Date:'" + Date + '\'' +
+                "\"ArtName\":\"" + ArtName + '\"' +
+                ", \"ArtUrl\":\"" + ArtUrl + '\"' +
+                ", \"ComUrl\":\"" + ComUrl + '\"' +
+                ", \"Type\":\"" + Type + '\"' +
+                ", \"Date\":\"" + Date + '\"' +
+                ", \"Browse\":\"" + Browse + '\"' +
                 '}';
     }
 }

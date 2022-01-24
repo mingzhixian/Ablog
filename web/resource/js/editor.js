@@ -57,7 +57,6 @@ function Update() {
             dataType: "html"
         }).done(function (output) {
             document.getElementById("article").value = output;
-            ;
             ShowDown();
         }).fail(function (xhr, status) {
             console.log(status);

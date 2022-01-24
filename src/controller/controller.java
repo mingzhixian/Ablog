@@ -15,14 +15,13 @@ import java.io.InputStream;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
-import java.util.Base64;
 
 @Controller
 public class controller {
 
     //根据文章名以及获取参数Url，返回对应md文件
     @RequestMapping(value = "GetArt.do", method = RequestMethod.GET)
-    public void GetMd(@RequestParam("Url") String Url, @RequestParam("ArtName") String ArtName, HttpServletResponse response) throws SQLException, IOException {
+    public void GetMd(@RequestParam("Url") String Url, @RequestParam("ArtName") String ArtName, HttpServletResponse response) throws SQLException, IOException, ClassNotFoundException {
         //设置响应头
         response.setHeader("content-disposition", "attachment;filename=" + URLEncoder.encode(ArtName, StandardCharsets.UTF_8));
 
@@ -94,5 +93,9 @@ public class controller {
         return "{code: 0, data: {username:\"test\"}}";
     }
 
-
+    @RequestMapping(value = "GetBrowse.do")
+    @ResponseBody
+    public String GetBrowse(@RequestParam("ArtName") String artName) throws SQLException {
+        return GetBrowse.GetBrowse(artName);
+    }
 }

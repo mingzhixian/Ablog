@@ -4,5 +4,6 @@ create table Art
     ArtUrl  text not null,
     ComUrl  text not null,
     Type    text not null,
-    Date    text not null
+    Date    text not null,
+    Browse  int  not null
 );

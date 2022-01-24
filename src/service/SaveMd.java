@@ -15,8 +15,6 @@ public class SaveMd {
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         String artUrl = DBtool.getDataPath() + "Art/" + artName + ".md";
         String comUrl = DBtool.getDataPath() + "Com/" + artName + ".md";
-        String sql = String.format("insert into Art ('ArtName', 'ArtUrl', 'ComUrl','Type','Date')" +
-                "values ('%s', '%s', '%s','%s','%s');", artName, artUrl, comUrl, type, date);
         File artfile = new File(artUrl);
         File comFile = new File(comUrl);
 
@@ -39,7 +37,10 @@ public class SaveMd {
         comWriter.close();
 
         //添加数据库记录
-        DBtool.excute("delete from Art where ArtName='" + artName + "';");
-        DBtool.excute(sql);
+        if (!DBtool.IsHave(artName)) {
+            String sql = String.format("insert into Art ('ArtName', 'ArtUrl', 'ComUrl','Type','Date','Browse') values" +
+                    " ('%s','%s', '%s','%s','%s','%s');", artName, artUrl, comUrl, type, date, "0");
+            DBtool.excute(sql);
+        }
     }
 }

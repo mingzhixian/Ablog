@@ -18,7 +18,7 @@ public class DBtool {
     static DataSource ds = null;
     private static int IsFrist = 0;
     //数据库以及文章、图片等数据文件位置
-    private static final String dataPath = "D:\\code\\java\\博客\\";
+    private static final String dataPath = "/home/kic/Ablog/";
     //数据库地址
     private static final String filePath = dataPath + "Ablog" + ".db";
     private static final String DbUrl = "jdbc:sqlite:" + filePath;
@@ -91,6 +91,12 @@ public class DBtool {
         return a;
     }
 
+    //查询数据库中是否具有数据
+    public static Boolean IsHave(String ArtName) throws SQLException, IOException, ClassNotFoundException {
+        List<Article> articles = GetArt("select * from Art where ArtName ='" + ArtName + "'");
+        return !articles.isEmpty();
+    }
+
     //按照sql语句获取所有文章对象
     public static List<Article> GetArt(String sql) throws SQLException {
         List<Article> articles = new ArrayList<>();
@@ -98,7 +104,7 @@ public class DBtool {
             try (Statement statement = connection.createStatement()) {
                 ResultSet one = statement.executeQuery(sql);
                 while (one.next()) {
-                    articles.add(new Article(one.getString("ArtName"), one.getString("ArtUrl"), one.getString("ComUrl"), one.getString("Type"), one.getString("Date")));
+                    articles.add(new Article(one.getString("ArtName"), one.getString("ArtUrl"), one.getString("ComUrl"), one.getString("Type"), one.getString("Date"), one.getInt("Browse")));
                 }
             }
         } catch (ClassNotFoundException | IOException e) {
