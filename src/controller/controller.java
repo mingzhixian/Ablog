@@ -1,5 +1,6 @@
 package controller;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -82,16 +83,6 @@ public class controller {
         response.getWriter().write("{\"AddCom\":\"success\"}");
     }
 
-
-    @RequestMapping(value = "login.do")
-    @ResponseBody
-    public String login(HttpServletRequest req, HttpServletResponse res) {
-        if (!isAuth.isAuth(req, res)) {
-            return "{code: 401, msg: \"no auth\"}";
-        }
-
-        return "{code: 0, data: {username:\"test\"}}";
-    }
 
     @RequestMapping(value = "GetBrowse.do")
     @ResponseBody

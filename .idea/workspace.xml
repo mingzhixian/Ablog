@@ -6,26 +6,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc5b728a-25f9-4610-9aba-9bb402d1c47e" name="变更" comment="变更">
-      <change afterPath="$PROJECT_DIR$/src/service/isAuth.java" afterDir="false" />
+    <list default="true" id="22e33876-6d9c-488f-8afd-3e6ece4e869b" name="默认变更列表" comment="">
+      <change afterPath="$PROJECT_DIR$/src/controller/AuthFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Ablog/Ablog.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Ablog/Ablog.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/controller/controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/controller/controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/dao/DBtool.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/dao/DBtool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/AddCom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/AddCom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/Article.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/Article.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/BasicAuth.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/BasicAuth.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/DelMd.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/DelMd.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/GetArt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/GetArt.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/GetMd.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/GetMd.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/GetType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/GetType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/ListToMd.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/ListToMd.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Ablog/service/SaveMd.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Ablog/service/SaveMd.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller.java" afterDir="false" />
-    </list>
-    <list id="f7af64f9-699f-46e0-b73d-f17bd50ebe9b" name="kic 进行的变更" comment="">
-      <change beforePath="$PROJECT_DIR$/src/dao/DBtool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DBtool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interceptor/RequireAuth.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interceptor/requireAuthInterceptor.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,6 +202,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
+      <changelist id="22e33876-6d9c-488f-8afd-3e6ece4e869b" name="默认变更列表" comment="" />
       <created>1642572005269</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -227,6 +215,7 @@
       <workItem from="1642678802516" duration="1522000" />
       <workItem from="1642866138713" duration="1672000" />
       <workItem from="1642903792719" duration="2301000" />
+      <workItem from="1643017517470" duration="2106000" />
     </task>
     <servers />
   </component>
@@ -246,5 +235,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
