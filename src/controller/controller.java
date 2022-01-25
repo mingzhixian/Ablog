@@ -1,11 +1,10 @@
 package controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import service.*;
 
 import javax.servlet.ServletOutputStream;
@@ -89,4 +88,25 @@ public class controller {
     public String GetBrowse(@RequestParam("ArtName") String artName) throws SQLException {
         return GetBrowse.GetBrowse(artName);
     }
+
+    //返回压缩的文件
+    @RequestMapping(value = "GetZip.do")
+    public void GetZip(HttpServletResponse response) throws SQLException, IOException, ClassNotFoundException {
+        //设置响应头
+        response.setHeader("content-disposition", "attachment;");
+        response.setContentType("text/html;charset=utf-8");
+        //返回文件流
+       // InputStream inputStream = GetMd.GetMd(ArtName, Url);
+        InputStream inputStream=FileZip.FileZip();
+        ServletOutputStream outputStream = response.getOutputStream();
+        int len;
+        byte[] bytes = new byte[1024];
+        while ((len = inputStream.read(bytes)) != -1) {
+            outputStream.write(bytes, 0, len);
+        }
+        // 关闭资源
+        inputStream.close();
+        outputStream.close();
+    }
+
 }
