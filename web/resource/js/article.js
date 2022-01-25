@@ -3,7 +3,7 @@ var ArtUrl = null;
 var ComUrl = null;
 var Broswse = null;
 //服务器后台地址
-var CloudUrl = GetCloud();
+const CloudUrl = GetCloud();
 
 //从链接获取文章名
 function getvl(key) {
@@ -147,13 +147,28 @@ function BadCom(ComText) {
     return false;
 }
 
+//搜索功能
+function Search() {
+    var content = $('#article').text();
+    var searchText = $('#search').val();
+    if (searchText.length === 0) {
+        return false;
+    }
+    var regExp = new RegExp(searchText, 'g');
+    var newHtml = content.replace(regExp, '<span id="result" style="background:yellow;color:red;">' + searchText + '</span>');
+    $('#article').html(newHtml);
+    var X = $('#result').offsetX;
+    var Y = $('#result').offsetY;
+    window.scrollTo(X, Y);
+}
+
 //黑白主题切换
 function DayAndNight() {
     var select = document.getElementById("SetImg");
     var head = document.getElementsByTagName("head")[0];
-    var color = new Array();
+    var color = [];
     var NewUrl = null;
-    if (select.getAttribute("alt") == "night") {
+    if (select.getAttribute("alt") === "night") {
         //网页背景颜色
         color[0] = "#262622";
         //文章标题、浏览次数字体颜色
@@ -186,7 +201,7 @@ function DayAndNight() {
         select.setAttribute('alt', 'day');
         NewUrl = "resource/css/github-markdown-night.css";
 
-    } else if (select.getAttribute("alt") == "day") {
+    } else if (select.getAttribute("alt") === "day") {
         //网页背景颜色
         color[0] = "#f2f8f2";
         //文章标题颜色
