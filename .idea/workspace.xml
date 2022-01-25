@@ -7,12 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22e33876-6d9c-488f-8afd-3e6ece4e869b" name="默认变更列表" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/AuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interceptor/RequireAuth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interceptor/requireAuthInterceptor.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +210,7 @@
       <workItem from="1642678802516" duration="1522000" />
       <workItem from="1642866138713" duration="1672000" />
       <workItem from="1642903792719" duration="2301000" />
-      <workItem from="1643017517470" duration="2106000" />
+      <workItem from="1643017517470" duration="2775000" />
     </task>
     <servers />
   </component>
