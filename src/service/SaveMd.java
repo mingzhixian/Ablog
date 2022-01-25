@@ -10,31 +10,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SaveMd {
-    public static void SaveMd(String artName, String artText, String type) throws IOException, SQLException, ClassNotFoundException {
+    public static void SaveMd(String artName, String artText, String type) throws IOException, SQLException,
+            ClassNotFoundException {
         //新文章
         String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
         String artUrl = DBtool.getDataPath() + "Art/" + artName + ".md";
         String comUrl = DBtool.getDataPath() + "Com/" + artName + ".md";
-        File artfile = new File(artUrl);
-        File comFile = new File(comUrl);
-
-        //新建文件
-        artfile.getParentFile().mkdirs();
-        comFile.getParentFile().mkdirs();
-
-        //写入数据
-        FileWriter artWriter = new FileWriter(artfile);
-        FileWriter comWriter = new FileWriter(comFile);
-
-        //初始评论
-        if (!comFile.exists()) {
-            comWriter.write("- 欢迎来打脸\n");
-        }
-        artWriter.write(artText);
-        artWriter.flush();
-        comWriter.flush();
-        artWriter.close();
-        comWriter.close();
+        Save(artText, artUrl);
+        Save("- 欢迎来打脸\n", comUrl);
 
         //添加数据库记录
         if (!DBtool.IsHave(artName)) {
@@ -42,5 +25,14 @@ public class SaveMd {
                     " ('%s','%s', '%s','%s','%s','%s');", artName, artUrl, comUrl, type, date, "0");
             DBtool.excute(sql);
         }
+    }
+
+    public static void Save(String Text, String Url) throws IOException {
+        File file = new File(Url);
+        file.getParentFile().mkdirs();
+        FileWriter Writer = new FileWriter(file);
+        Writer.write(Text);
+        Writer.flush();
+        Writer.close();
     }
 }
