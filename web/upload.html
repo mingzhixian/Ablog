@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="resource/js/jquery-3.6.0.min.js" type="text/javascript"></script>
+</head>
+<body>
+<form action="./upload" method="post" enctype="multipart/form-data">
+    上传压缩包:<input type="file" name="zipFile"/>
+    解压路径:<input type="text" name="destPath"/>
+    解压密码(为空可不传):<input type="text" name="password"/></br>
+    <button id="ok" value="测试"></button>
+    <input type="submit" value="执行操作"/>
+</form>
+</body>
+
+</html>
