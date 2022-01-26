@@ -2,6 +2,7 @@ var converter = new showdown.Converter({tables: true});
 var ArtUrl = null;
 var ComUrl = null;
 var Broswse = null;
+var Article = null;
 //服务器后台地址
 const CloudUrl = GetCloud();
 
@@ -82,9 +83,11 @@ function MoreDevices() {
 
 //解析md文件并展示
 function ShowDown(output, dom, IsDir) {
-    document.getElementById(dom).innerHTML = converter.makeHtml(output);
+    var Dom = document.getElementById(dom);
+    Dom.innerHTML = converter.makeHtml(output);
     if (IsDir === 1) {
         directory();
+        Article = Dom.innerHTML;
     }
 }
 
@@ -149,17 +152,19 @@ function BadCom(ComText) {
 
 //搜索功能
 function Search() {
-    var content = $('#article').text();
-    var searchText = $('#search').val();
-    if (searchText.length === 0) {
-        return false;
-    }
-    var regExp = new RegExp(searchText, 'g');
-    var newHtml = content.replace(regExp, '<span id="result" style="background:yellow;color:red;">' + searchText + '</span>');
-    $('#article').html(newHtml);
-    var X = $('#result').offsetX;
-    var Y = $('#result').offsetY;
-    window.scrollTo(X, Y);
+    window.find($('#search').val(), true, true, true, true, false, true);
+    // var dom = $('#article');
+    // //还原
+    // dom.html(Article);
+    // //获取搜索值
+    // var searchText = $('#search').val();
+    // if (searchText.length === 0) {
+    //     return false;
+    // }
+    // var regExp = new RegExp(">" + searchText + "<", 'g');
+    // var newHtml = Article.replace(regExp, '><span id="result" style="background:yellow;color:red;">' + searchText + '</span><');
+    // //设置值
+    // dom.html(newHtml);
 }
 
 //黑白主题切换
