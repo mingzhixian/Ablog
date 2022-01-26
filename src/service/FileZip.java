@@ -1,5 +1,7 @@
 package service;
 
+import dao.DBtool;
+
 import java.io.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -11,9 +13,9 @@ import java.util.zip.ZipOutputStream;
 public class FileZip {
 
 
-    public static InputStream FileZip() throws FileNotFoundException {
-        String inputFile="D:\\code\\java\\博客\\Art";
-        String outputFile="D:\\code\\java\\博客\\text.zip";
+    public static InputStream FileZip(String type) throws FileNotFoundException {
+        String inputFile= DBtool.getDataPath()+type;
+        String outputFile=DBtool.getDataPath()+type+".zip";
         try {
             ZipCompress(inputFile, outputFile);
         } catch (Exception e) {

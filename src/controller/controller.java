@@ -91,13 +91,13 @@ public class controller {
 
     //返回压缩的文件
     @RequestMapping(value = "GetZip.do")
-    public void GetZip(HttpServletResponse response) throws SQLException, IOException, ClassNotFoundException {
+    public void GetZip(@RequestParam(name = "type") String type,HttpServletResponse response) throws IOException{
         //设置响应头
-        response.setHeader("content-disposition", "attachment;");
+        response.setHeader("content-disposition", "attachment;filename="+type+".zip");
         response.setContentType("text/html;charset=utf-8");
         //返回文件流
        // InputStream inputStream = GetMd.GetMd(ArtName, Url);
-        InputStream inputStream=FileZip.FileZip();
+        InputStream inputStream=FileZip.FileZip(type);
         ServletOutputStream outputStream = response.getOutputStream();
         int len;
         byte[] bytes = new byte[1024];
